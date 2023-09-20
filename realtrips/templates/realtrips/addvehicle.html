@@ -1,0 +1,101 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% comment %} {%load crispy_forms_tags %}  {% endcomment %}
+{%block content%}
+  
+
+    <section class="section">
+      <div class="section-body">
+        <div class="row">
+        
+          <div class="col-6 col-md-6 col-lg-6">
+           
+              <form action="{% url 'addvehicle' %}" method="POST">
+                {% csrf_token %}
+                <div class="card-header">
+                
+                </div>
+        
+         <form method="POST"  class="forms-sample">
+             {% csrf_token %}
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Add Vehicle </h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Vehicle Registration</label>
+                        {% render_field form.vehicle_reg_no type="text" class="form-control" placeholder="Vehicle Registration"  %}
+                      
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Company</label>
+                        {% render_field form.company type="text" class="form-control" placeholder="Company"  %}
+                        
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Fleet Number</label>
+                      {% render_field form.fleet_no type="text" class="form-control" placeholder="Fleet No."  %}
+                     
+                    </div>
+                    {% comment %} <div class="form-group">
+                      <label for="inputAddress2">Address 2</label>
+                      <input type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div>
+                    <div class="form-group mb-0">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div> {% endcomment %}
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>       
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js'%}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js'%}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js'%}"></script>
+            
+               
+            
+         
+            
+          </div>
+        </div>
+      </div>
+    </section>
+   
+  </div>
+{%endblock content%}  

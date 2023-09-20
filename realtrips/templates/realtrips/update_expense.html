@@ -1,0 +1,33 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+
+{%load crispy_forms_tags %} 
+{%block content%}
+  
+<div class="main-content">
+    <section class="section">
+      <div class="section-body">
+        <div class="row">
+        
+          <div class="col-12 col-md-6 col-lg-6">
+          
+              <form action="{% url 'edit-expense' pk=expense.id %}" method="POST">
+                {% csrf_token %}
+                <div class="card-header">
+                  <h4>Edit Expense </h4>
+                </div>
+                {{form|crispy }}
+            
+                <div class="card-footer text-right">
+                  <button class="btn btn-warning">Update</button>
+                </div>
+              </form>
+           
+            
+          </div>
+        </div>
+      </div>
+    </section>
+   
+  </div>
+{%endblock content%}  

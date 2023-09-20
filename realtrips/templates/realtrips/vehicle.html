@@ -1,0 +1,129 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+{%load crispy_forms_tags %} 
+<link rel="stylesheet" href="{% static "assets/css/custom.css" %}%">
+<link rel='shortcut icon' type='image/x-icon' href='{% static "assets/img/favicon.ico' /> 
+<link rel="stylesheet" href="{% static "assets/bundles/izitoast/css/iziToast.min.css" %}">
+{%block content%}
+
+  <!-- Main Content -->
+    <main><!--  #main -->
+     
+      <section class="section">
+      <div class="section-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header" align='justify-left'>
+              <a href="{% url 'addvehicle' %}" class="btn btn-icon icon-right btn-success"><i class="fas fa-plus"></i> Add Vehicle</a>
+            </div>
+
+            <div class="card-body" col-md-6>  
+              <h4>SEARCH/ FILTER VEHICLE </h4>
+                <form method="GET" >
+                  {{ filter.form|crispy}}
+                
+
+                  <button type="submit" name='q' class= "btn btn btn-success">Search </button>
+              </form>
+            </div>  
+           
+            
+          
+            {% if messages %}
+            <div class="alert alert" role="alert">
+              
+                  {% for message in messages %}
+                      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  {% endfor %}
+           
+             </div>
+            {% endif %}
+        
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th>Vehicle ID</th>
+                      <th>Vehicle</th>
+                      <th>Company</th>
+                      <th>Fleet No.</th>
+                      <th>Added by</th>
+                      <th>Date</th>
+                     
+                      {% comment %} <th>trip_total_collection</th> {% endcomment %}
+                     
+                      <th colspan= 3>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for vehicle in object_list %}
+                    <tr>
+                      <td>{{vehicle.id}}</td>
+                      <td>{{vehicle.vehicle_reg_no}}</td>
+                      <td>{{vehicle.company}}</td>
+                      <td>{{vehicle.fleet_no}}</td> 
+                      <td>{{vehicle.profile}}</td> 
+                                         
+                      <td>{{vehicle.created|date:"d-m-Y"}}</td>
+                      
+                     
+                     
+                      <td>
+                        
+                          <a href="#" class= "btn btn btn-primary"</a>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                          class="feather feather-eye"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                          </path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 
+                        </a>
+                        <a href="#" class= "btn btn btn-success"</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </a>
+                      </td>
+                      
+                    </tr>
+                   
+
+                    {% empty%}
+                   {% endfor %}
+                  
+                  
+                  </tbody>
+                </table>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </section>
+      <!-- Page Specific JS File -->
+            <script src="{% static "assets/bundles/datatables/datatables.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/dataTables.buttons.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/buttons.flash.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/jszip.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/pdfmake.min.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/vfs_fonts.js" %}"></script>
+            <script src="{% static "assets/bundles/datatables/export-tables/buttons.print.min.js" %}"></script>
+            <script src="{% static "assets/js/page/datatables.js" %}"></script>
+              <!-- Template JS File -->
+              <script src="{% static "assets/js/scripts.js" %}"></script>
+              <!-- Custom JS File -->
+              <script src="{% static "assets/js/custom.js" %}"></script>
+              <script src="{% static "assets/bundles/izitoast/js/iziToast.min.js" %}"></script>
+        </main><!-- End #main -->
+        <script src="{% static 'assets/js/app.min.js '%}"></script>
+        <!-- JS Libraies -->
+        <script src="{% static 'assets/bundles/apexcharts/apexcharts.min.js'%}"></script>
+        <!-- Page Specific JS File -->
+        <script src="{% static 'assets/js/page/index.js'%}"></script>
+        <!-- Template JS File -->
+        <script src="{% static 'assets/js/scripts.js'%}"></script>
+        <!-- Custom JS File -->
+        <script src="{% static 'assets/js/custom.js'%}"></script>
+{% endblock content %}      

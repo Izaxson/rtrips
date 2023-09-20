@@ -1,0 +1,8 @@
+.login .logo img {
+    max-height: 100px;
+    width: auto;
+}
+
+.login .logo img[src$="/admin/img/logo.svg"] {
+    content: url("/static/asset/img/Realtripslogo.jpg");
+}

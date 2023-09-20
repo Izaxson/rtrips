@@ -1,0 +1,67 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Real Trips|</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static "assets/css/app.min.css" %}">
+  <link rel="stylesheet" href="{% static "assets/bundles/jqvmap/dist/jqvmap.min.css" %}">
+  <link rel="stylesheet" href="{% static "assets/bundles/flag-icon-css/css/flag-icon.min.css" %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static "assets/css/style.css" %}">
+  <link rel="stylesheet" href="{% static "assets/css/components.css" %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static "assets/css/custom.css" %}">
+  <link rel='shortcut icon' type='image/x-icon' href='{% static 'assets/img/favicon.ico' %}' />
+  <link rel="stylesheet" href="{% static "assets/css/custom.css" %}">
+  <link rel='shortcut icon' type='image/x-icon' href='{% static "assets/img/favicon.ico" %}%' />
+
+</head>
+
+<body>
+{% comment %} <div class="loader"></div> {% endcomment %}
+  <div id="app"> 
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+    
+  {% comment %} {% include 'realtrips/navbar.html' %} 
+  {% include 'realtrips/aside.html' %}  {% endcomment %}
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            {% block content %}
+            
+            {% endblock content %}
+          </div>
+        </section>
+        
+      </div>
+      
+    </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="{% static "assets/js/app.min.js" %}"></script>
+  <!-- JS Libraies -->
+  <script src="{% static "assets/bundles/chartjs/chart.min.js" %}"></script>
+  <script src="{% static "assets/bundles/jquery.sparkline.min.js" %}"></script>
+  <script src="{% static "assets/bundles/apexcharts/apexcharts.min.js" %}"></script>
+  <script src="{% static "assets/bundles/jqvmap/dist/jquery.vmap.min.js" %}"></script>
+  <script src="{% static "assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js" %}"></script>
+  <script src="{% static "assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js" %}"></script>
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static "assets/js/scripts.js" %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static "assets/js/custom.js" %}"></script>
+  <script src="{% static "assets/bundles/izitoast/js/iziToast.min.js" %}"></script>
+</body>
+
+
+<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+</html>

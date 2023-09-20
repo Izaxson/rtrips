@@ -1,0 +1,514 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+
+
+{%block content%}
+      <!-- Main Content -->
+      <div class="container col-md-12 ">
+        <section class="section">
+          <div class="section-body">
+            
+           
+            <div class="row ">
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                  <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                      <div class="row ">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                          <div class="card-content">
+                            <h5 class="font-15">Total Trips</h5>
+                            <h2 class="mb-3 font-18">{{trip_count}}</h2>
+                            {% comment %} <p class="mb-0"><span class="col-green">10%</span> Increase</p> {% endcomment %}
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                          <div class="banner-img">
+                            <img src="{% static 'assets/img/trips.svg'%}" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+              
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                  <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                      <div class="row ">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                          <div class="card-content">
+                            <h5 class="font-15">Revenue</h5>
+                            <h2 class="mb-3 font-18"> Ksh. {{total_amount_collected}}</h2>
+                            {% comment %} <p class="mb-0"><span class="col-green">42%</span> Net Earnings</p> {% endcomment %}
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                          <div class="banner-img">
+                            <img src="{% static 'assets/img/target.svg'%}" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                  <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                      <div class="row ">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                          <div class="card-content">
+                            <h5 class="font-15">Expense </h5>
+                            <h2 class="mb-3 font-18">Ksh. {{total_expense_incurred}}</h2>
+                            {% comment %} <p class="mb-0"><span class="col-green">18%</span> {% endcomment %}
+                              </p>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                          <div class="banner-img">
+                            <img src="{% static 'assets/img/expenses.svg' %}" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                 <div class="card">
+                  <div class="card-statistic-4">
+                    <div class="align-items-center justify-content-between">
+                      <div class="row ">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                          <div class="card-content">
+                            <h5 class="font-15"> Net Earnings</h5>
+                            <h2 class="mb-3 font-18"> Ksh.{{net_revenue}}</h2>
+                            {% comment %} <p class="mb-0"><span class="col-orange">09%</span> Decrease</p> {% endcomment %}
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                          <div class="banner-img">
+                            <img src="{% static 'assets/img/lead.svg'%}" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="card">
+                <div class="card-statistic-4">
+                  <div class="align-items-center justify-content-between">
+                    <div class="row ">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                        <div class="card-content">
+                          <h5 class="font-15">Total Mileage</h5>
+                          <h2 class="mb-3 font-18">{{ mileage.mileage }}</h2>
+                          {% comment %} <p class="mb-0"><span class="col-green">10%</span> Increase</p> {% endcomment %}
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                        <div class="banner-img">
+                          <img src="{% static 'assets/img/mileage.svg'%}" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {% comment %} <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="card-icon shadow-primary bg-cyan">
+                    <i class="fas fa-bus"></i>
+                  </div>
+                  <div class="card-wrap">
+                    <div class="card-header">
+                      <h4 class="pull-right">Total Revenue</h4>
+                    </div>
+                    <div class="card-body pull-right">
+                      Ksh. {{total_amount_collected}}
+                    </div>
+                  </div>
+                  <div class="card-chart">
+                    <canvas id="chart-1" height="80"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="card-icon shadow-primary bg-purple">
+                    <i class="
+                    fas fa-car-crash"></i>
+                  </div>
+                  <div class="card-wrap">
+                    <div class="card-header">
+                      <h4 class="pull-right">Total Expenses</h4>
+                    </div>
+                    <div class="card-body pull-right">
+                      Ksh. {{total_expense_incurred}}
+                    </div>
+                  </div>
+                  <div class="card-chart">
+                    <canvas id="chart-2" height="80"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="card-icon shadow-primary bg-green">
+                    <i class="fas fa-dollar-sign"></i>
+                  </div>
+                  <div class="card-wrap">
+                    <div class="card-header">
+                      <h4 class="pull-right">Net Total Earning</h4>
+                    </div>
+                    <div class="card-body pull-right">
+                      Ksh.{{net_revenue}}
+                    </div>
+                  </div>
+                  <div class="card-chart">
+                    <canvas id="chart-3" height="80"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div> {% endcomment %}
+
+            <div class="row">
+              {% comment %} <div class="col-xl-8 col-md-12 col-lg-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Revenue Report</h4>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-inline text-center">
+                      <li class="list-inline-item p-r-30"><i data-feather="arrow-up-circle" class="col-green"></i>
+                        <h5 class="m-b-0">Ksh. {{total_amount_collected}}</h5>
+                        <p class="text-muted font-14 m-b-0">Total Earnings</p>
+                      </li>
+                      <li class="list-inline-item p-r-30"><i data-feather="arrow-down-circle" class="col-orange"></i>
+                        <h5 class="m-b-0">Ksh. {{total_expense_incurred}}</h5>
+                        <p class="text-muted font-14 m-b-0">Expenses </p>
+                      </li>
+                      <li class="list-inline-item p-r-30"><i data-feather="arrow-up-circle" class="col-green"></i>
+                        <h5 class="mb-0 m-b-0">Ksh.{{net_revenue}}</h5>
+                        <p class="text-muted font-14 m-b-0">Net Revenue</p>
+                      </li>
+                    </ul>
+                    <div id="revenue"></div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+              {% comment %} <div class="col-xl-4 col-md-12 col-lg-4">
+                <div class="card l-bg-orange">
+                  <div class="card-body">
+                    <div class="text-white">
+                      <div class="row">
+                        <div class="col-md-6 col-lg-5">
+                          <h4 class="mb-0 font-26">$1,235</h4>
+                          <p class="mb-2">Avg Sales Per Month</p>
+                          <p class="mb-0">
+                            <span class="font-20">+11.25% </span>Increase
+                          </p>
+                        </div>
+                        <div class="col-md-6 col-lg-7">
+                          <div class="sparkline-bar p-t-50"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card l-bg-cyan">
+                  <div class="card-body">
+                    <div class="text-white">
+                      <div class="row">
+                        <div class="col-md-6 col-lg-5">
+                          <h4 class="mb-0 font-26">758</h4>
+                          <p class="mb-2">Avg new Cust Per Month</p>
+                          <p class="mb-0">
+                            <span class="font-20">+25.11%</span> Increase
+                          </p>
+                        </div>
+                        <div class="col-md-6 col-lg-7">
+                          <div class="sparkline-line-chart2 p-t-50"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              {% comment %} <div class="col-12 col-sm-12 col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Visitors</h4>
+                  </div>
+                  <div class="card-body">
+                    <div id="visitorMap4" data-height="190"></div>
+                  </div>
+                  <div class="card-footer card-footer-grey pt-0">
+                    <div class="statistic-details mt-4 align-items-center justify-content-center">
+                      <div class="statistic-details-item col-sm-4 col-12">
+                        <div class="detail-chart">
+                          <div class="sparkline-line-chart"></div>
+                        </div>
+                        <div class="detail-value">11,365</div>
+                        <div class="detail-name">Visits</div>
+                      </div>
+                      <div class="statistic-details-item col-sm-4 col-12">
+                        <div class="detail-chart">
+                          <div class="sparkline-line-chart"></div>
+                        </div>
+                        <div class="detail-value">32%</div>
+                        <div class="detail-name">Referral</div>
+                      </div>
+                      <div class="statistic-details-item col-sm-4 col-12">
+                        <div class="detail-chart">
+                          <div class="sparkline-line-chart"></div>
+                        </div>
+                        <div class="detail-value">68%</div>
+                        <div class="detail-name">Organic</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% comment %} <div class="card mt-4">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3 col-6 mb-md-0 mb-4 text-center">
+                        <div class="img-shadow flag-icon flag-icon-au"></div>
+                        <div class="mt-2 font-weight-bold text-nowrap">Australia</div>
+                        <div class="text-small text-muted">9,500</div>
+                      </div>
+                      <div class="col-sm-3 col-6 mb-md-0 mb-4 text-center">
+                        <div class="img-shadow flag-icon flag-icon-br"></div>
+                        <div class="mt-2 font-weight-bold text-nowrap">Brazil</div>
+                        <div class="text-small text-muted"><span class="text-primary"><i
+                              class="fas fa-caret-up"></i></span> 7,328</div>
+                      </div>
+                      <div class="col-sm-3 col-6 text-center">
+                        <div class="img-shadow flag-icon flag-icon-in"></div>
+                        <div class="mt-2 font-weight-bold text-nowrap">India</div>
+                        <div class="text-small text-muted"><span class="text-danger"><i
+                              class="fas fa-caret-down"></i></span> 5,830</div>
+                      </div>
+                      <div class="col-sm-3 col-6 text-center">
+                        <div class="img-shadow flag-icon flag-icon-ch"></div>
+                        <div class="mt-2 font-weight-bold text-nowrap">Switzerland</div>
+                        <div class="text-small text-muted">4,763</div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                </div>{% endcomment %}
+                {% comment %} <div class="col-12 col-sm-12 col-lg-6 mt-lg-0 mt-sm-4">
+                  <div class="card"> {% endcomment %}
+                    {% comment %} <div class="card-header">
+                    <h4>Referral URL</h4>
+                  </div> {% endcomment %}
+                  {% comment %} <div class="card-body">
+                    <canvas id="myChart3" height="170"></canvas>
+                    <div class="mb-4 mt-4">
+                      <div class="text-small float-right font-weight-bold text-muted">558</div>
+                      <div class="font-weight-bold mb-1">Google</div>
+                      <div class="progress" data-height="4" data-toggle="tooltip" title="58%">
+                        <div class="progress-bar bg-success" data-width="58%"></div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="text-small float-right font-weight-bold text-muted">338</div>
+                      <div class="font-weight-bold mb-1">Facebook</div>
+                      <div class="progress" data-height="4" data-toggle="tooltip" title="44%">
+                        <div class="progress-bar bg-purple" data-width="44%"></div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="text-small float-right font-weight-bold text-muted">238</div>
+                      <div class="font-weight-bold mb-1">Bing</div>
+                      <div class="progress" data-height="4" data-toggle="tooltip" title="32%">
+                        <div class="progress-bar bg-orange" data-width="32%"></div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="text-small float-right font-weight-bold text-muted">190</div>
+                      <div class="font-weight-bold mb-1">Yahoo</div>
+                      <div class="progress" data-height="4" data-toggle="tooltip" title="22%">
+                        <div class="progress-bar bg-cyan" data-width="22%"></div>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div> {% endcomment %}
+            </div>
+            {% comment %} <div class="row">
+              <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                <div class="card mt-sm-5 mt-md-0">
+                  <div class="card-header">
+                    <h4>Visitors</h4>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="donutChart"></canvas>
+                    <ul class="p-t-30 list-unstyled">
+                      <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-black"></i></span>Search Engines<span
+                          class="float-right">30%</span></li>
+                      <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-green"></i></span>Direct Click<span
+                          class="float-right">50%</span></li>
+                      <li class="padding-5"><span><i class="fa fa-circle m-r-5 col-orange"></i></span>Video Click<span
+                          class="float-right">20%</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Authors</h4>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title"><i class="fas fa-dollar-sign col-green font-30 p-b-10"></i> 763,215</h3>
+                    <canvas id="line-chart3"></canvas>
+                    <div class="row p-t-20">
+                      <div class="col-4">
+                        <p class="text-muted font-15 text-truncate m-b-5">Target</p>
+                        <h5>
+                          <i class="fas fa-arrow-circle-up col-green m-r-5"></i>$15.3k
+                        </h5>
+                      </div>
+                      <div class="col-4">
+                        <p class="text-muted font-15 text-truncate m-b-5">Last
+                          week</p>
+                        <h5>
+                          <i class="fas fa-arrow-circle-down col-red m-r-5"></i>$2.8k
+                        </h5>
+                      </div>
+                      <div class="col-4">
+                        <p class="text-muted text-truncate m-b-5">Last
+                          Month</p>
+                        <h5>
+                          <i class="fas fa-arrow-circle-up col-green m-r-5"></i>$12.5k
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="settingSidebar">
+          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+          </a>
+          <div class="settingSidebar-body ps-container ps-theme-default">
+            <div class=" fade show active">
+              <div class="setting-panel-header">Setting Panel
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Select Layout</h6>
+                <div class="selectgroup layout-color w-50">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                    <span class="selectgroup-button">Light</span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                    <span class="selectgroup-button">Dark</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                <div class="selectgroup selectgroup-pills sidebar-color">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Color Theme</h6>
+                <div class="theme-setting-options">
+                  <ul class="choose-theme list-unstyled mb-0">
+                    <li title="white" class="active">
+                      <div class="white"></div>
+                    </li>
+                    <li title="cyan">
+                      <div class="cyan"></div>
+                    </li>
+                    <li title="black">
+                      <div class="black"></div>
+                    </li>
+                    <li title="purple">
+                      <div class="purple"></div>
+                    </li>
+                    <li title="orange">
+                      <div class="orange"></div>
+                    </li>
+                    <li title="green">
+                      <div class="green"></div>
+                    </li>
+                    <li title="red">
+                      <div class="red"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="mini_sidebar_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Mini Sidebar</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="sticky_header_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Sticky Header</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                  <i class="fas fa-undo"></i> Restore Default
+                </a>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+  
+    </div>
+
+    <script src="{% static 'assets/js/app.min.js '%}"></script>
+    <!-- JS Libraies -->
+    <script src="{% static 'assets/bundles/apexcharts/apexcharts.min.js'%}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{% static 'assets/js/page/index.js'%}"></script>
+    <!-- Template JS File -->
+    <script src="{% static 'assets/js/scripts.js'%}"></script>
+    <!-- Custom JS File -->
+    <script src="{% static 'assets/js/custom.js'%}"></script>
+
+<!-- widget-chart.html  21 Nov 2019 03:50:03 GMT -->
+{% endblock content %}

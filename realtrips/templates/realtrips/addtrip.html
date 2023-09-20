@@ -1,0 +1,127 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+ {% load widget_tweaks %} 
+{%load crispy_forms_tags %} 
+{%block content%}
+
+  
+
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-6 col-sm-6 col-lg-3">
+                <div class="card">
+            
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                
+              <form action="{% url 'addtrip' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="card-header">
+                  
+                    </div>
+                     {% comment %} {{form|crispy}}   {% endcomment %}
+                        
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Record Trip </h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Vehicle Registration</label>
+                        {% render_field form.Vehicle type="text" class="form-control" placeholder="Vehicle Registration"  %}
+                       
+                      </div>
+                      
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Odometer Start</label>
+                      {% render_field form.odometer_start type="number" class="form-control" placeholder="odometer start"  %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Odometer Close</label>
+                        {% render_field form.odometer_close type="number" class="form-control" placeholder="odometer close"  %}
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputAddress2">Journey Start</label>
+                        {% render_field form.journey_start type="text" class="form-control" placeholder="Journey Start"  %}
+                          
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputAddress2">Journey Destination</label>
+                        {% render_field form.journey_destination type="text" class="form-control" placeholder="Journey Destination"  %}
+                          
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Amount Collected</label>
+                        {% render_field form.amount_collected type="number" class="form-control" placeholder="Amount Collected"  %}
+                          
+                      </div>
+                    {% comment %} <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div> {% endcomment %}
+                    {% comment %} <div class="form-group mb-0">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div> {% endcomment %}
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+           </form>        
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js'%}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js'%}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js'%}"></script>
+                       
+                     
+                
+               
+              
+                
+              </div>
+            </div>
+          </div>
+        </section>
+      
+      </div>
+  <script src="{% static "assets/js/page/toastr.js" %}"></script>
+  <script src="{% static 'assets/js/app.min.js '%}"></script>
+    <!-- JS Libraies -->
+    <script src="{% static 'assets/bundles/apexcharts/apexcharts.min.js'%}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{% static 'assets/js/page/index.js'%}"></script>
+    <!-- Template JS File -->
+    <script src="{% static 'assets/js/scripts.js'%}"></script>
+    <!-- Custom JS File -->
+    <script src="{% static 'assets/js/custom.js'%}"></script>
+{%endblock content%}  

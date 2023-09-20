@@ -1,0 +1,79 @@
+{% extends "realtrips/base.html" %}
+{% load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %} 
+{% comment %} {%load crispy_forms_tags %}  {% endcomment %}
+{%block content%}
+  
+
+    <section class="section">
+      <div class="section-body">
+        <div class="row">
+        
+          <div class="col-6 col-md-6 col-lg-6">
+           
+              <form action="{% url 'addexpense' %}" method="POST">
+                {% csrf_token %}
+                <div class="card-header">
+                 
+                </div>
+             
+                
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Add Expense </h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Vehicle</label>
+                        {% render_field form.Vehicle type="text" class="form-control" placeholder="Vehicle"  %}
+                        {% comment %} <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> {% endcomment %}
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Expense</label>
+                        {% render_field form.name type="text" class="form-control" placeholder="Expense"  %}
+                        {% comment %} <input type="password" class="form-control" id="inputPassword4" placeholder="Password"> {% endcomment %}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Amount</label>
+                      {% render_field form.amount_incurred type="text" class="form-control" placeholder="Amount Incurred"  %}
+                      {% comment %} <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"> {% endcomment %}
+                    </div>
+                   
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+     </section>           
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js'%}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js'%}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js'%}"></script>
+            
+               
+         
+            
+          </div>
+        </div>
+      </div>
+    </section>
+   
+  </div>
+  <script src="{% static 'assets/js/app.min.js '%}"></script>
+    <!-- JS Libraies -->
+    <script src="{% static 'assets/bundles/apexcharts/apexcharts.min.js'%}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{% static 'assets/js/page/index.js'%}"></script>
+    <!-- Template JS File -->
+    <script src="{% static 'assets/js/scripts.js'%}"></script>
+    <!-- Custom JS File -->
+    <script src="{% static 'assets/js/custom.js'%}"></script>
+{%endblock content%}  

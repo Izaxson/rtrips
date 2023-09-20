@@ -1,0 +1,82 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- contact.html  21 Nov 2019 04:05:04 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Admin Dashboard Template</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css'%}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css'%}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css'%}">
+  <link rel='shortcut icon' type='image/x-icon' href='{% static 'assets/img/favicon.ico'%}' />
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+            <div class="login-brand">
+             
+            </div>
+            <div class="card card-primary">
+              <div class="row m-0">
+                <div class="col-12 col-md-12 col-lg-5 p-0">
+                  <div class="card-header text-center">
+                    <h4> Real Trips| Every trip counts</h4>
+                  </div>
+                  <div class="card-body">
+                    <form method="POST">
+                       {% csrf_token %}
+                      <div class="form-group floating-addon">
+                        <label>Email</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="fas fa-envelope"></i>
+                            </div>
+                          </div>
+                          <input id="username" type="text" class="form-control" name="username" placeholder="username">
+                        </div>
+                      </div>
+                      <div class="form-group floating-addon">
+                        <label>Password</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="far fa-user"></i>
+                            </div>
+                          </div>
+                          <input id="name" type="password" class="form-control" name="password" autofocus placeholder="Password">
+                        </div>
+                      </div>
+                      
+                    
+                      <div class="form-group text-right">
+                        <button type="submit" class="btn btn-round btn-lg btn-primary">
+                          Login
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                {% comment %} <div class="col-12 col-md-12 col-lg-7 p-0" mt-20px >
+                  <img src="{% static "assets/rtrips.png" height=190,width=50 alt="logo" %}">
+                </div>  {% endcomment %}
+
+                <div class="col-12 col-md-12 col-lg-7 p-0" mt-20px >
+                  <img src="{% static "assets/rtrips.png" height=190,width=50 alt="logo" %}">
+                </div> 
+              </div>
+            </div>
+            
